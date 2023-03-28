@@ -17,7 +17,7 @@ public class CameraScreenshot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKey(KeyCode.N))
         {
             // Créer une texture de rendu pour stocker l'image capturée
             RenderTexture renderTexture = new RenderTexture(width, height, 24);
