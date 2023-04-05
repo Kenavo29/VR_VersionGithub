@@ -8,11 +8,11 @@ public class CameraScreenshot : MonoBehaviour
     public int height = 1080;
     public string filename = "screenshot.png";
 
-    private Camera camera;
+    private Camera myCamera;
 
     void Start()
     {
-        camera = GetComponent<Camera>();
+        myCamera = GetComponent<Camera>();
     }
 
     void Update()
@@ -26,11 +26,11 @@ public class CameraScreenshot : MonoBehaviour
             RenderTexture currentRT = RenderTexture.active;
 
             // Assigner la texture de rendu comme texture active de la caméra
-            camera.targetTexture = renderTexture;
+            myCamera.targetTexture = renderTexture;
             RenderTexture.active = renderTexture;
 
             // Forcer le rendu de la caméra sur la texture de rendu
-            camera.Render();
+            myCamera.Render();
 
             // Créer une texture 2D à partir de la texture de rendu
             Texture2D screenshot = new Texture2D(width, height, TextureFormat.RGB24, false);
@@ -42,7 +42,7 @@ public class CameraScreenshot : MonoBehaviour
             System.IO.File.WriteAllBytes(Application.dataPath + "/" + filename, bytes);
 
             // Réinitialiser la texture active de la caméra et la texture de rendu
-            camera.targetTexture = null;
+            myCamera.targetTexture = null;
             RenderTexture.active = currentRT;
         }
     }
