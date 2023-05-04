@@ -8,6 +8,12 @@ public class InputSystemOfTheBled : MonoBehaviour
     public PyloneBuilder pyloneManager;
     public LaserPointer pointer;
     public static GameObject listPylou;
+    public float increaseScale = 0.1f;
+
+
+    public float scaleX = 1f;
+    public float scaleY = 1f;
+    public float scaleZ = 1f;
 
 
     private void Start()
@@ -28,8 +34,25 @@ public class InputSystemOfTheBled : MonoBehaviour
         {
             GameObject newCylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             newCylinder.transform.position = pointer.hitP;
+            newCylinder.transform.localScale = new Vector3(scaleX, scaleY,scaleZ);
+
+
             Debug.Log("Tenta creation pylou");
 
         }
+    }
+
+    public void IncreaseScaleX()
+    {
+        scaleX += increaseScale;
+        scaleY += increaseScale;
+        scaleZ += increaseScale;
+    }
+
+    public void reduceScaleX()
+    {
+        scaleX -= increaseScale;
+        scaleY -= increaseScale;
+        scaleZ -= increaseScale;
     }
 }
