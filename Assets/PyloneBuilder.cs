@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PyloneBuilder : MonoBehaviour
 {
-    public bool pyloneBuildActive = false;
+    public bool  pyloneBuildActive = false;
     public void ButtonPylone()
     {
         if (pyloneBuildActive)
@@ -15,5 +15,11 @@ public class PyloneBuilder : MonoBehaviour
         {
             pyloneBuildActive = true;
         }
+    }
+
+    public void ButtonDisablePylone()
+    {
+        pyloneBuildActive = false;
+
     }
 }
