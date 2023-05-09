@@ -125,7 +125,7 @@ public class InputSystemOfTheBled : MonoBehaviour
 
     public void reduceScaleX()
     {
-        scaleX = scaleX* decreaseScale;
+        scaleX = scaleX/ decreaseScale;
         cylinderPreview.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
         wallPreview.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
 
@@ -133,7 +133,7 @@ public class InputSystemOfTheBled : MonoBehaviour
     }
     public void IncreaseScaleY()
     {
-        scaleY = scaleY/ increaseScale;
+        scaleY = scaleY * increaseScale;
         cylinderPreview.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
         wallPreview.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
 
