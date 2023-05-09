@@ -165,4 +165,11 @@ public class InputSystemOfTheBled : MonoBehaviour
 
 
     }
+
+    public void setAllModeOff()
+    {
+        pyloneManager.pyloneBuildActive = false;
+        wallManager.wallBuildActive = false;
+
+    }
 }
