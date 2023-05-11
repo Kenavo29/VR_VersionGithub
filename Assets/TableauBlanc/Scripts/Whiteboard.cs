@@ -9,9 +9,8 @@ public class Whiteboard : MonoBehaviour
 
     void Start()
     {
-        //nouvelle texture manipulable
-        var r = GetComponent<Renderer>();
-        texture = new Texture2D((int)textureSize.x, (int)textureSize.y);
-        r.material.mainTexture = texture;
+        var r = GetComponent<Renderer>(); //gère le rendu graphique du tableau
+        texture = new Texture2D((int)textureSize.x, (int)textureSize.y); //nouvelle texture manipulable
+        r.material.mainTexture = texture; // "texture" est la texture principale du renderer r
     }
 }
