@@ -48,6 +48,46 @@ public class MainCamera : MonoBehaviour
 
     }
 
+    //Gestion bouton +/- des paramètres
+    public void ButtonnearClipPlaneDistanceMore()
+    {
+        nearClipPlaneDistance = nearClipPlaneDistance + 0.02f;
+    }
+    public void ButtonnearClipPlaneDistanceLess()
+    {
+        nearClipPlaneDistance = nearClipPlaneDistance - 0.02f;
+    }
+
+    public void farClipPlaneDistanceMore()
+    {
+        farClipPlaneDistance = farClipPlaneDistance + 20f;
+    }
+    public void farClipPlaneDistancLess()
+    {
+        farClipPlaneDistance = farClipPlaneDistance - 20f;
+    }
+
+    public void nearCutPlaneMore()
+    {
+        nearCutPlane = nearCutPlane + 10;
+    }
+
+    public void nearCutPlaneLess()
+    {
+        nearCutPlane = nearCutPlane - 10;
+    }
+
+    public void farCutPlaneMore()
+    {
+        farCutPlane = farCutPlane + 10;
+    }
+
+    public void farCutPlaneLess()
+    {
+        farCutPlane = farCutPlane - 10;
+    }
+
+
     public void ButtonCuttingPlane()
     {
 

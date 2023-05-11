@@ -11,7 +11,7 @@ public class recallBoard : MonoBehaviour
 
     public void Board()
     {
-        Vector3 shift = new Vector3(0.0f, 0.0f, 2f);
+        Vector3 shift = new Vector3(0.0f, -1.5f, 0.0f);
         this.transform.position = player.transform.position + shift;
     }
 }
