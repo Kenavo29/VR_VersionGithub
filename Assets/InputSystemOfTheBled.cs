@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 public class InputSystemOfTheBled : MonoBehaviour
 {
@@ -9,10 +11,13 @@ public class InputSystemOfTheBled : MonoBehaviour
     public WallsBuilder wallManager;
     public LaserPointer pointer;
 
-    public static GameObject listPylou;
+
+
+    public static GameObject[] listObj;
+    public int index;
     public int increaseScale = 2;
     public int decreaseScale = 2;
-
+    public MenuManager menuManager;
 
     private GameObject cylinderPreview;
     private GameObject wallPreview;
@@ -32,6 +37,8 @@ public class InputSystemOfTheBled : MonoBehaviour
     {
         Debug.Log("Initialisation OK");
 
+        listObj = new GameObject[1000];
+        index = 0;
         _pylou = inputActions.FindActionMap("XRI RightHand").FindAction("Pylone");
         _pylou.Enable();
         _pylou.performed += TogglePylone;
@@ -91,25 +98,47 @@ public class InputSystemOfTheBled : MonoBehaviour
     public void TogglePylone(InputAction.CallbackContext context)
     {
 
-        if (pyloneManager.pyloneBuildActive && !wallManager.wallBuildActive)
+        if (pyloneManager.pyloneBuildActive && !wallManager.wallBuildActive && !menuManager.isHovered)
         {
             GameObject newCylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             newCylinder.transform.position = pointer.hitP;
             newCylinder.transform.localScale = new Vector3(scaleX, scaleY,scaleZ);
-
+            listObj[index] = newCylinder;
+            index++;
 
             Debug.Log("Tenta creation pylou");
 
         }
-        if (!pyloneManager.pyloneBuildActive && wallManager.wallBuildActive)
+        if (!pyloneManager.pyloneBuildActive && wallManager.wallBuildActive && !menuManager.isHovered)
         {
-            GameObject caré = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            caré.transform.position = pointer.hitP;
-            caré.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
-
+            GameObject carre = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            carre.transform.position = pointer.hitP;
+            carre.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+            listObj[index] = carre;
+            index++;
 
             Debug.Log("Tenta creation caré");
 
+        }
+    }
+    public void undo()
+    {
+        GameObject ob;
+        if (index > 0)
+        { 
+            ob = listObj[index];
+            index--;
+            Destroy(ob);
+            Debug.Log("Tenta delete object n1");
+
+        }
+        
+        if (index > 0)
+        {
+            ob = listObj[index];
+            index--;
+            Destroy(ob);
+            Debug.Log("Tenta delete object n2");
         }
     }
 

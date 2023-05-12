@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public bool isHovered;
     public Canvas Build;
     public Canvas CuttingPlane;
     public InputSystemOfTheBled inp;
     public Transform player;
     private bool testingZone = false;
+
+    
+
+
 
     void Start()
     {
@@ -29,7 +34,18 @@ public class MenuManager : MonoBehaviour
         inp.setAllModeOff();
 
     }
+    void OnMouseEnter()
+    {
+        isHovered = true;
+        Debug.Log("Entrée souris");
 
+    }
+
+    void OnMouseExit()
+    {
+        isHovered = false;
+        Debug.Log("Sortie souris");
+    }
 
     public void ButtonTest()
     {

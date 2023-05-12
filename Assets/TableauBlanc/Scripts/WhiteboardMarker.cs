@@ -37,7 +37,7 @@ public class WhiteboardMarker : MonoBehaviour
 
    
        // Méthode qui dessine sur le tableau blanc s'il y a contact avec la mine du stylo
-    Draw()
+   void Draw()
     {
         //La mine est-elle en contact avec quelquechose ?
         if (Physics.Raycast(_tip.position, transform.up, out _touch, _tipHeight))
