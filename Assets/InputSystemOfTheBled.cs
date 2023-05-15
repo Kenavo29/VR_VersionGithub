@@ -128,8 +128,7 @@ public class InputSystemOfTheBled : MonoBehaviour
         { 
             ob = listObj[index];
             index--;
-            Destroy(ob);
-            Debug.Log("Tenta delete object n1");
+            ob.transform.position = new Vector3(10000, 10000, 10000);
 
         }
         
@@ -137,8 +136,7 @@ public class InputSystemOfTheBled : MonoBehaviour
         {
             ob = listObj[index];
             index--;
-            Destroy(ob);
-            Debug.Log("Tenta delete object n2");
+            ob.transform.position = new Vector3(10000, 10000, 10000);
         }
     }
 
